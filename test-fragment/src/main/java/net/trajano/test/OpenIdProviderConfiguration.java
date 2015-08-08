@@ -32,6 +32,16 @@ public class OpenIdProviderConfiguration {
     }
 
     /**
+     * JSON array containing a list of the OAuth 2.0 [RFC6749] scope values that
+     * this server supports. The server MUST support the openid scope value.
+     * Servers MAY choose not to advertise some supported scope values even when
+     * this parameter is used, although those defined in [OpenID.Core] SHOULD be
+     * listed, if supported.
+     */
+    @XmlElement(name = "scopes_supported")
+    private Set<Scope> scopesSupported;
+
+    /**
      * JSON array containing a list of the Authentication Context Class
      * References that this OP supports.
      */
@@ -94,6 +104,24 @@ public class OpenIdProviderConfiguration {
      */
     @XmlElement(name = "end_session_endpoint")
     private URI endSessionEndpoint;
+
+    
+            /**
+             * @return the scopesSupported
+             */
+            public Set<Scope> getScopesSupported() {
+            
+                return scopesSupported;
+            }
+
+    
+            /**
+             * @param scopesSupported the scopesSupported to set
+             */
+            public void setScopesSupported(Set<Scope> scopesSupported) {
+            
+                this.scopesSupported = scopesSupported;
+            }
 
     @XmlElement(name = "id_token_encryption_alg_values_supported")
     private List<String> idTokenEncryptionAlgValuesSupported;

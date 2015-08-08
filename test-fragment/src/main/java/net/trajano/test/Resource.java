@@ -3,6 +3,9 @@
  */
 package net.trajano.test;
 
+import java.util.Arrays;
+import java.util.HashSet;
+
 import javax.ejb.Stateless;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -21,6 +24,8 @@ public class Resource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response get() {
 
-        return Response.ok(new OpenIdProviderConfiguration()).build();
+        OpenIdProviderConfiguration entity = new OpenIdProviderConfiguration();
+        entity.setScopesSupported(new HashSet<>(Arrays.asList(Scope.OPENID, Scope.ADDRESS)));
+        return Response.ok(entity).build();
     }
 }

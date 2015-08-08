@@ -5,11 +5,4 @@
 	version="3.1" metadata-complete="false">
 	<name>openid_connect_jaspic_module</name>
 	<description>When this is installed as a fragment, it will register itself as the authentication module for the application.</description>
-	<servlet>
-		<servlet-name>javax.ws.rs.core.Application</servlet-name>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>javax.ws.rs.core.Application</servlet-name>
-		<url-pattern>/V1/*</url-pattern>
-	</servlet-mapping>
 </web-fragment>
