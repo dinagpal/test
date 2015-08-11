@@ -29,8 +29,8 @@ public class HelloEjb2 implements Hello2 {
     public String echo(String e) {
 
         System.out.println(e);
-        return e + " hello3=" + hello3;
+        //return e + " hello3=" + hello3;
         //      FAILS   
-        //return e + " hello3=" + hello3.echo(e);
+        return e + " hello3=" + hello3.echo(e);
     }
 }
