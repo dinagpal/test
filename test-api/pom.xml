@@ -7,4 +7,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>test-api</artifactId>
+    <properties>
+        <m2e.wtp.activation>false</m2e.wtp.activation>
+    </properties>
 </project>
