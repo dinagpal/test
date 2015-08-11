@@ -9,6 +9,9 @@
 		<module>test-ear</module>
 		<module>test-war</module>
 		<module>test-fragment</module>
+		<module>test-api</module>
+		<module>test-ejb</module>
+		<module>test-ejb2</module>
 	</modules>
 	<parent>
 		<groupId>net.trajano</groupId>
