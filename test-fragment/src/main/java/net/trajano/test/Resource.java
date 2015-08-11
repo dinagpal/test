@@ -3,15 +3,11 @@
  */
 package net.trajano.test;
 
-import java.util.Arrays;
-import java.util.HashSet;
-
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.json.JsonObject;
-import javax.ws.rs.Consumes;
+import javax.json.Json;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -20,28 +16,23 @@ import javax.ws.rs.core.Response;
 /**
  * @author
  */
-@Path(".well-known/openid-configuration")
+@Path("resource")
 @Stateless
 public class Resource {
 
 	@EJB
 	WebSideSlsb slsb;
-	
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response get() {
 
-        OpenIdProviderConfiguration entity = new OpenIdProviderConfiguration();
-        entity.setScopesSupported(new HashSet<>(Arrays.asList(Scope.OPENID, Scope.ADDRESS)));
-        return Response.ok(entity).build();
-    }
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response get() {
 
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response save(JsonObject o) {
+		return Response.ok(Json.createArrayBuilder().add("hello world").build()).build();
+	}
 
-        
-        return Response.ok(slsb.hello(o)).build();
-    }
+	@PostConstruct
+	public void init() {
+		System.out.println("POSTCONSTRUCT");
+		System.out.println(slsb);
+	}
 }
