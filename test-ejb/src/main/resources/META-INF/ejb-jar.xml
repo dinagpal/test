@@ -3,4 +3,13 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
       	  http://xmlns.jcp.org/xml/ns/javaee/ejb-jar_3_2.xsd"
 	version="3.2" metadata-complete="false">
+	<enterprise-beans>
+		<session>
+			<ejb-name>Hello3</ejb-name>
+			<business-remote>net.trajano.test.api.Hello3</business-remote>
+			<ejb-class>net.trajano.test.api.Hello3Impl</ejb-class>
+			<session-type>Stateless</session-type>
+		</session>
+
+	</enterprise-beans>
 </ejb-jar>

@@ -16,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 
 import net.trajano.test.api.Hello;
 import net.trajano.test.api.Hello2;
+import net.trajano.test.api.Hello3;
 
 /**
  * @author Archimedes Trajano
@@ -43,7 +44,7 @@ public class HelloServlet extends HttpServlet {
         HttpServletResponse resp) throws ServletException, IOException {
 
         resp.setContentType(MediaType.TEXT_PLAIN);
-        resp.getWriter().println("Hello=" + hello);
-        resp.getWriter().println("Hello2=" + hello2);
+        resp.getWriter().println("Hello=" + hello.echo(hello.toString()));
+        resp.getWriter().println("Hello2=" + hello2.echo(hello2.toString()));
     }
 }
