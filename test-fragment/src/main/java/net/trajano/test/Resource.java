@@ -3,9 +3,9 @@
  */
 package net.trajano.test;
 
+import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.ejb.Stateless;
 import javax.json.Json;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -17,7 +17,7 @@ import javax.ws.rs.core.Response;
  * @author
  */
 @Path("resource")
-@Stateless
+@ManagedBean
 public class Resource {
 
 	@EJB
@@ -28,6 +28,14 @@ public class Resource {
 	public Response get() {
 
 		return Response.ok(Json.createArrayBuilder().add("hello world").build()).build();
+	}
+
+	@GET
+	@Path("j")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getSlsb() {
+
+		return Response.ok(slsb.hello(Json.createObjectBuilder().add("from", "world").build())).build();
 	}
 
 	@PostConstruct

@@ -5,8 +5,8 @@ package net.trajano.test.web;
 
 import java.io.IOException;
 
+import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
-import javax.ejb.Stateless;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +20,7 @@ import net.trajano.test.api.Hello2;
 /**
  * @author Archimedes Trajano
  */
-@Stateless
+@ManagedBean
 @WebServlet("/hello")
 public class HelloServlet extends HttpServlet {
 
